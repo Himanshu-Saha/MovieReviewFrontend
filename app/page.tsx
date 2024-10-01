@@ -38,7 +38,7 @@ export default function HomePage() {
         onChange={(e) => setSearch(e.target.value)}
       />
 
-      <div className="movie-list">
+      <div className="movie-list flex">
         {filteredMovies.map((movie) => (
           <MovieCard key={movie._id?.toString()} movie={movie}/>
         ))}
