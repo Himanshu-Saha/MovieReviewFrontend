@@ -19,8 +19,8 @@ const MovieModal: React.FC<MovieModalProps> = ({ closeModal, onMovieAdded, movie
   }, [movieToEdit]);
 
   const handleSubmit = async () => {
-    const method = movieToEdit ? 'PUT' : 'POST'; // Use PUT for editing
-    const endpoint = movieToEdit ? `/api/movies/${movieToEdit._id}` : '/api/movies';
+    const method = movieToEdit ? 'PUT' : 'POST'; 
+    const endpoint = movieToEdit ? `http://localhost:8000/api/movies/${movieToEdit._id}` : 'http://localhost:8000/api/movies';
 
     const response = await fetch(endpoint, {
       method,
@@ -29,7 +29,7 @@ const MovieModal: React.FC<MovieModalProps> = ({ closeModal, onMovieAdded, movie
     });
 
     const updatedMovie = await response.json();
-    onMovieAdded(updatedMovie); // Call the handler with the new/updated movie
+    onMovieAdded(updatedMovie);
     closeModal();
   };
 

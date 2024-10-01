@@ -4,6 +4,7 @@ import { CustomButton } from "./Custom/Button";
 import AddMovieModal from "./MovieModal";
 import AddReviewModal from "./AddReviewModal";
 import { Movie } from "../models/Movie";
+import { log } from "console";
 
 export const Navbar = () => {
   const [isAddMovieOpen, setIsAddMovieOpen] = useState(false);
@@ -37,7 +38,7 @@ export const Navbar = () => {
       {isAddMovieOpen && (
         <AddMovieModal
           closeModal={() => setIsAddMovieOpen(false)}
-          onMovieAdded={(newMovie) => setMovies([...movies, newMovie])}
+          onMovieAdded={(newMovie) => {console.log(newMovie)}}
         />
       )}
       {isAddReviewOpen && (
